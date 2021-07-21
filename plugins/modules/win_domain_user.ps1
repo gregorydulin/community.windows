@@ -287,10 +287,13 @@ If ($state -eq 'present') {
 
 
     # Configure group assignment
+    echo "groups is $groups"
     If ($null -ne $groups) {
         $group_list = $groups
+        echo "group_list is $group_list"
 
         $groups = @()
+        echo "groups is $groups"
         Foreach ($group in $group_list) {
             $groups += (Get-ADGroup -Identity $group @extra_args).DistinguishedName
         }
